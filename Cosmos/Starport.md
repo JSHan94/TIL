@@ -39,3 +39,7 @@ genesis:
 init:
   home: "$HOME/.earth"
 ```
+
+# 참고자료
+
+https://tutorials.cosmos.network/hello-world/tutorial/
