@@ -40,6 +40,8 @@ router.get('/', async(req,res)=>{
 
 이를 해결하기 위해서 데코레이터 패턴 권장
 
+구체적인 방법은 참고 자료 확인
+
 # 참고 자료
 
 https://programmingsummaries.tistory.com/399
