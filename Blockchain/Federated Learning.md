@@ -4,7 +4,7 @@
 
 로컬 클라이언트로는 IoT, Mobile Device 등이 포함될 수 있음
 
-https://ai.googleblog.com/2017/04/federated-learning-collaborative.html 구글 AI 블로그에 소개 되기도 하였으며 실제 G Keyboard에 적용되고 있음
+[구글 AI 블로그](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html)에 소개 되기도 하였으며 실제 G Keyboard에 적용되고 있음
 
 연합 학습은 **데이터 프라이버시 향상**과 **커뮤니케이션 효율성** 두 가지 장점이 있음
 
