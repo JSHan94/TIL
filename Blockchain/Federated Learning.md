@@ -18,4 +18,6 @@ https://ai.googleblog.com/2017/04/federated-learning-collaborative.html 구글 A
 
 FL 논문 : https://arxiv.org/abs/1602.05629(FL 소개 논문, 2015), https://arxiv.org/abs/1912.04977(FL 이정표, 2019)
 
-참고 사이트 : https://medium.com/curg/%EC%97%B0%ED%95%A9-%ED%95%99%EC%8A%B5-federated-learning-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%B1%8C%EB%A6%B0%EC%A7%80-b5c481bd94b7
+관련 코드 : https://github.com/tensorflow/federated(FL with Tensorflow)
+
+참고 사이트 : [CURG Medium]: https://medium.com/curg/%EC%97%B0%ED%95%A9-%ED%95%99%EC%8A%B5-federated-learning-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%B1%8C%EB%A6%B0%EC%A7%80-b5c481bd94b7
