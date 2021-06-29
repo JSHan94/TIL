@@ -34,7 +34,14 @@ Generate a single signature (ECDSA)
 - Fast, asynchronous approvals 
 
 
-# [Introduction to MPC](https://static1.squarespace.com/static/586cf12903596e5605548ae1/t/5d2fae4c0321c10001173af7/1563405901591/An+Introduction+to+MPC+and+Threshold+Cryptography.pdf)
+# Disadvantage of MPC
+
+- Significant communications overhead, additional components and methods for computation
+- Assumptions need to be made about the proportions of malicious coordinating parties in the computation.
+
+# 참고 자료
+
+## [Introduction to MPC](https://static1.squarespace.com/static/586cf12903596e5605548ae1/t/5d2fae4c0321c10001173af7/1563405901591/An+Introduction+to+MPC+and+Threshold+Cryptography.pdf)
 
 > MPC eliminates the potential that one party becomes corrupted and misuses the key. It also eliminates the dependency on specialized secure hardware appliances, and assures accurate and secure cryptographic operations even with widely distributed, potentially untrusted devices or clouds, without any special forms of physical security.
 
