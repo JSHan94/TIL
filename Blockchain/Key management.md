@@ -44,15 +44,30 @@ It gives stronger security. A central authority keeps a dynamic directory of pub
 
 ### Public Key Certificates
 
+공인인증서 방식
+
 The directoy of names and public keys maintained by the authority is vulnerable to tampering.
 
 An alternative approach is to use certificates.
 
-In essence, a certificate consists of a public key, an identifier of the key owner, and the whole block signed by a trusted third party
+In essence, a certificate consists of **a public key, an identifier of the key owner, and the whole block signed by a trusted third party**
 
 Typically, the third party is a certificate authority, such as a government agency or financial institution that is trusted by the user community
 
-s
+A user can present public key to the authority in a secure manner and obtain a certificate.
+
+The user can then publish the certificate. Anyone needing this user's public key can obtain the certificate and verify that it is valid by way of the attached trusted signature
+
+Other participants can verify that the certificate was created by the authority
+
+We can place the following requirements on this scheme:
+
+- Any participant can read a certificate to determine the name and public key of the certificate's owner.
+- Any participant can verify that the certificate originated from the certificate authority and is not counterfeit.
+- Only the certificate authority can create and update certificates
+- Any participant can verify the certificate
+
+
 # 참고자료
 
 [Public key distribution](https://www.youtube.com/watch?v=5YUarIe_WwE&t=302s)
