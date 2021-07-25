@@ -1,3 +1,5 @@
+# 맨 앞의 노드가 비어있는 상태로 만들 것
+# head.next로 다음 노드부터 읽도록하는 게 더 구현하기 편함
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
