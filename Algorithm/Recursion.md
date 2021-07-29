@@ -1,3 +1,15 @@
+# Recursion
+
+직/간접적으로 자신의 함수를 다시 호출하는 방식의 알고리즘
+
+## Base Condition
+
+더 큰 문제의 솔루션을 작은 문제로 나누는 형태이고, 이 때 가장 base case의 솔루션을 Base condtion이라 함
+
+그런데, Stack Overflow에 주의해야함
+
+![Recursion](./images/recursion.jpg)
+
 # Tail recursion
 
 기존의 recursion 같은 경우에는 자신의 입력 값, 리턴 값, 호출 후 돌아갈 장소 등을 Stack에 저장하게 되는데
