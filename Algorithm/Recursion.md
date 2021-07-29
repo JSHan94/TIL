@@ -45,8 +45,8 @@ int Factorial(int n)
 int Factorial(int n)
 {
 	if (n == 1) return 1;
-	
-  int result = Factorial(n - 1);
+
+ 	int result = Factorial(n - 1);
 	return n * result;
 }
 ```
