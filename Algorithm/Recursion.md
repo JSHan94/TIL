@@ -2,6 +2,10 @@
 
 직/간접적으로 자신의 함수를 다시 호출하는 방식의 알고리즘
 
+장점 : 코드를 작성하기 쉽다
+
+단점 : recursive와 iterative program은 구조적으로 같은 방식이다. 모든 recursive 프로그램은 iteratively 작성 가능함. 그렇지만 Recursive는 훨씬 더 많은 space requirement를 요구하는 문제가 있음. 또한 call / return overhead로 인한 소요 시간도 
+
 ## Base Condition
 
 더 큰 문제의 솔루션을 작은 문제로 나누는 형태이고, 이 때 가장 base case의 솔루션을 Base condtion이라 함
