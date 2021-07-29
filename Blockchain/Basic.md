@@ -5,17 +5,37 @@ A node refers to a **running piece of client software.**
 
 A client is an **implementation of blockchain** that verifies all transactions in each block, keeping the network secure and the data accurate.
 
-https://ethereum.org/en/developers/docs/nodes-and-clients/
+[이더리움 공식문서](https://ethereum.org/en/developers/docs/nodes-and-clients/)
 
+# Cryptographic Hash
+
+암호학적으로 collision을 찾기 힘든 해시 함수
+
+SHA-256, keccak256 등
+
+# Digital signature
+
+트랜잭션을 발생 시켰을 때 소유권을 증명하는 기법
+
+ECDSA 타원곡선 암호화 등
+
+# Accumulator
+
+집합에서 어떤 항목이 있는지 없는지를 확인하는 기법
+
+Blockchain에서는 Merkle Tree를 주로 사용함
+
+# Key exchange
+
+P2P 통신 시 서로 임의로 만든 키를 교환하고, 암호화 된 상태에서 변조가 되지 않을 것이라 생각하고 데이터 교환함
 
 # RPC (Remote Procedure call)
-
 
 RPC는 별도의 원격 제어를 위한 코딩 없이 다른 주소 공간에서 함수나 프로시저를 실행할 수 있게 하는 프로세스 간 통신 기술.
 
 RPC를 이용하면 프로그래머는 함수가 실행 프로그램에 로컬 위치이든 원격 위치이든 동일하게 코드 사용 가능 
 
-https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C
+[Wiki](https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C)
 
 
 # IPFS
@@ -26,7 +46,7 @@ IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분
 
 해시 테이블은 정보를 키와 값의 쌍(key/value pairs)으로 저장하는데, 전 세계 수많은 분산화된 노드들이 해당 정보를 저장하기 때문에 사용자는 IPFS를 사용함으로써 기존 HTTP 방식에 비해 훨씬 빠른 속도로 데이터를 저장하고 가져올 수 있다.
 
-http://wiki.hash.kr/index.php/IPFS
+[Wiki](http://wiki.hash.kr/index.php/IPFS)
 
-https://medium.com/@kblockresearch/8-ipfs-interplanetary-file-system-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1%EB%B6%80-http-web%EC%9D%84-%EB%84%98%EC%96%B4%EC%84%9C-ipfs-web%EC%9C%BC%EB%A1%9C-46382a2a6539
+[Medium 아티클](https://medium.com/@kblockresearch/8-ipfs-interplanetary-file-system-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1%EB%B6%80-http-web%EC%9D%84-%EB%84%98%EC%96%B4%EC%84%9C-ipfs-web%EC%9C%BC%EB%A1%9C-46382a2a6539)
 
