@@ -83,3 +83,9 @@ int FactorialTail(int n)
 	} while (true);
 }
 ```
+
+# Leetcode 문제
+
+Easy : 
+Medi : 2, 445 / 24
+Hard : 
