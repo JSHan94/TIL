@@ -22,8 +22,10 @@ Greedy는 과거의 선택을 다시 보지않음. 이것 때문에 DP보다 오
 # LeetCode
 
 [문제리스트](https://leetcode.com/discuss/general-discussion/1000929/solved-all-dynamic-programming-dp-problems-in-7-months)
-- Easy :
-- Medi :
-- Hard :
+
+[다익스트라 문제](https://leetcode.com/discuss/interview-question/731911/please-share-dijkstras-algorithm-questions)
+
+다익스트라가 DP인 이유는 최종 경로까지의 최단 경로를 구하기 위해 여러개의 최단경로를 이용하여 구하기 때문
+
 
 
