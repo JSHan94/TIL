@@ -97,3 +97,8 @@ Circuit Specific ZK Proof의 경우 회로에 대해서 각각 다른 SRS (Struc
 - Bulletproofs : 대수 기반 기법으로 벡터 내적연산 지원, 블록체인 회사에서 많이 채택함. RRS 기반. 하지만 검증 시간이 원래 회로 계산보다 오래 걸려 Plonk로 전환 중
 - Stark : 양자 저항성을 가진 기법으로 FRI (Fast Reed-Solomon Interactive Oracle Proofs)에 기반.
 
+
+# 참고자료
+
+[Diving into the zk-SNARKs Setup Phase(Trusted setup 이유)](https://medium.com/qed-it/diving-into-the-snarks-setup-phase-b7660242a0d7)
+[Zk-SNARKs: Under the Hood(비탈릭부테린 포스팅)](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
