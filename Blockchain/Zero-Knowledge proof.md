@@ -97,8 +97,44 @@ Circuit Specific ZK Proof의 경우 회로에 대해서 각각 다른 SRS (Struc
 - Bulletproofs : 대수 기반 기법으로 벡터 내적연산 지원, 블록체인 회사에서 많이 채택함. RRS 기반. 하지만 검증 시간이 원래 회로 계산보다 오래 걸려 Plonk로 전환 중
 - Stark : 양자 저항성을 가진 기법으로 FRI (Fast Reed-Solomon Interactive Oracle Proofs)에 기반.
 
+## Why Trusted Setup?
+
+모든 ZKP 시스템은 prover가 치팅을하거나 fake proof를 생성하는 것을 막기 위해 verifier가 반드시 무엇이 proven되는 지를 알고 있어야함.
+
+이는 ZKP property 중 soundness와 직접적으로 연관된 성질이며 일부 예시에서는 verifier가 full representation of statement를 가지는 것을 의미하기도함.
+
+하지만 이는 증명해야할 statement가 커서 verification 과정이 느려지고, 어플리케이션에 low latency(e.g transaction propagation)이나 high bandwidth로 인해 bottleneck 현상이 발생할 수 있음.
+
+이는 prover와 verifier 모두에게 이용가능한 CRS(SRS)의 관계를 pre-processing 단계에서 생성하는 방식으로 해결 가능한데, 이 과정에서 trusted setup 과정이 필요로함.
+
+verifier가 proven하는 것을 알도록 보장하는 현존하는 (21'09) 세가지 방법은 다음과 같음
+
+- Verifier gets the full statement : verifier가 명시적인 표현 관계(represtation of relation)를 사용. Bulletproof가 해당 케이스에 사용 됨. CRS의 일종인 URS(Unifom Reference String) 사용. prover와 verifier가 randomness와 public parameter에 동의함 
+- Verifier gets a succint representation of the statement : 여러번 반복 계산되는 basic representation을 가진다는 것을 의미함. 예를들어 100번의 pedersen commitment를 반복하여 증명할경 우 하나의 pedersen commitment만을 relation으로 요구함. random oracle의 무작위성과 그것에 대한 강한 assumption에 의존하지만, SHA-3 해시함수로 대체되어 heuristically 생성될 수 있음(Fiat-Shamir heuristic이라 불림)
+- Pre-processing : SNARK는 어떤 relation이든지 succintness를 보장함. 이를 위해, verifier는 relation의 summary에 의존하며, 이는 pre-processing stage에서 short string of bit를 모두 digest함을 의미함. PGHR, BTCV14, Groth16과 같은 QAP-based pre-processing SNARK의 경우가 그 예시임. 이 경우 pre-processing에서 생성된 SRS가 있음. 특히 prover의 SRS는 linear in relation size인 반면 verifier의 SRS는 Shrot함. 전처리 단계 없이는 이런 증명시스템을 구축할 수 없음
+
+prover의 privacy와 verifier에게 치팅하지 않는 것의 balance는 delicate함. 일반적으로 ZKP 시스템은 randomness를 요구함. 
+
+non-interactive한 시스템의 경우 이 무작위성이 사전에 설정되어야하고 proof는 공개적으로 검증 가능해야함(URS).
+
+URS와 달리 SRS는 setup이 비공개 무작위성에 의존함. 고로 fake proof를 생성할 백도어의 가능성이 존재함 (toxic waste).
+
+그렇기에 엔터티들을 신뢰할 수 있도록 키를 생성하는 trusted setup이 필요함.
+
+물론 하나의 entity가 키를 생성하는 것은 모든 사람이 verifer이자 prover인 ZKP시스템의 사용 목적을 무산시킬 수 있음.
+
+이에 대한 해결 책으로 MPC를 적용하여 신뢰 가정을 줄이는 방법이 존재함. 이상적으로는 모든 당사자가 악의적이거나 compromised하지 않으면 보안은 유지가 됨.
+
+dl
+
+
+일반적으로 succint ZKP는 trusted setup이나 multiparty ceremony 형태의 setup 단계를 필요로함. 
+
+예외적인 예시로는 statement가 충분히 작아서 succintness가 중요한 issue가 아닌경우나 compactly하게 작성 가능할 때(예를들어 매우 반복적으로 작성하거나)는 setup을 필요로하지 않음.
+
 
 # 참고자료
 
+[영지식 증명기술 동향(국내 자료)](https://webcache.googleusercontent.com/search?q=cache:tqAMdVbpblkJ:https://www.itfind.or.kr/publication/regular/weeklytrend/weekly/view.do%3FboardParam1%3D7961%26boardParam2%3D7961+&cd=2&hl=ko&ct=clnk&gl=kr)
 [Diving into the zk-SNARKs Setup Phase(Trusted setup 이유)](https://medium.com/qed-it/diving-into-the-snarks-setup-phase-b7660242a0d7)
 [Zk-SNARKs: Under the Hood(비탈릭부테린 포스팅)](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
