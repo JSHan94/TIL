@@ -50,6 +50,12 @@ ssh는 22, 2222 port만 서비스 중이었음... 그래서 2022는 연결되지
 grep Port /etc/ssh/sshd_config
 ```
 
+만약 원하는 포트가 열려있지 않는다면 sshd_config 파일 수정
+
+```
+sudo vi /etc/ssh/sshd_config
+```
+
 서비스가 실행 중이면 서비스가 예상 포트에서 동작 중인지를 확인하는 것이 가능
 
 netstat -plnt 를 이용해도 되지만 커널에서 소켓 정보를 쿼리하는 ss 명령이 더 선호됨
@@ -58,9 +64,29 @@ netstat -plnt 를 이용해도 되지만 커널에서 소켓 정보를 쿼리하
 ss -plnt
 ```
 
+포트 변경 후에는 ssh service 재시작
+
+```
+sudo service ssh restart
+```
+
+만약 해당 포트가 방화벽에 막혀 있을 경우 열어주기
+```
+sudo ufw allow 2222/tcp
+```
+
+제대로 포트가 열린지 확인
+
+서비스가 실행 중이면 서비스가 예상 포트에서 동작 중인지를 확인하는 것이 가능
+
+netstat -plnt 를 이용해도 되지만 커널에서 소켓 정보를 쿼리하는 ss 명령이 더 선호됨
+
+```
+ss -tulpn | grep 2222
+```
 
 # 참고 자료
 
 
 [Droplet 자료](https://docs.digitalocean.com/products/droplets/resources/troubleshooting-ssh/connectivity/)
-
+[다른 포트 열기](https://www.cyberciti.biz/faq/howto-change-ssh-port-on-linux-or-unix-server/)
