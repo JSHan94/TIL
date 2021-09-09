@@ -47,7 +47,7 @@ Non-Interactive : prover와 verifier의 메시지 교환을 최소화 하는 것
 
 Schnorr Protocol : 암호학에서, prover가 자신의 Private key를 공개하지 않고 이를 가지고 있다는 것을 증명하는 방법. 키 교환과 관련된 프로토콜로, 블록체인에 적용될 수 있는 예제
 
-자세한 방법은 [해당 링크 참조]:(https://medium.com/decipher-media/zero-knowledge-proof-chapter-1-introduction-to-zero-knowledge-proof-zk-snarks-6475f5e9b17b)
+자세한 방법은 [해당 링크 참조](https://medium.com/decipher-media/zero-knowledge-proof-chapter-1-introduction-to-zero-knowledge-proof-zk-snarks-6475f5e9b17b)
 
 # Structure of ZK Proof
 
