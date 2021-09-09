@@ -78,7 +78,13 @@ f를 수행할 때 비밀 입력(w)이 필요할 수 있는데, 영지식에서�
 
 ## Circuit Specific ZK Proof
 
-QAP (Quadratic Arithmetic Program) : 회로 표현 방식
+ZKP 변환 과정 : Computation -> Arthimetic Circuit -> R1CS -> QAP
+
+Arithmetic Circuit : Validity function의 계산과정을 연산 회로(AND/OR 등의 논리게이트)로 표현한 것
+
+R1CS : 사칙연산 게이트 단위로 표현된 연산회로, 이 형태에서는 각 게이트에 주어진 입출력 값이 유효한지 확인할 수 있음. 그렇지만 전체 수식에 대한 유효성을 검증하기 위해서는 각 게이트별 유효성을 일일이 검사해야하여 검증자 입장에서 많은 검증횟수가 요구됨
+
+QAP (Quadratic Arithmetic Program) : R1CS에서의 단점을 극복하기 위해 등장한 회로 표현 방식. 각 게이트별 제약사항을 임의의 게이트 변수를 통해 하나의 다항식으로 표현하는 방법. 이하 QAP의 예시
 
 - Pinocchio : n개의 곱셈 게이트를 가지는 QAP 형태로 주어진 회로에 대해서 증명자가 n에 비례하는 시간에 증명 생성 및 회로 크기와 상관없이 상수시간 검증
 - Groth16 : Pinocchio를 더 개선한 것으로 작은 크기의 증명을 생성하는 영지식 증명법
@@ -125,9 +131,6 @@ URS와 달리 SRS는 setup이 비공개 무작위성에 의존함. 고로 fake p
 
 이에 대한 해결 책으로 MPC를 적용하여 신뢰 가정을 줄이는 방법이 존재함. 이상적으로는 모든 당사자가 악의적이거나 compromised하지 않으면 보안은 유지가 됨.
 
-dl
-
-
 일반적으로 succint ZKP는 trusted setup이나 multiparty ceremony 형태의 setup 단계를 필요로함. 
 
 예외적인 예시로는 statement가 충분히 작아서 succintness가 중요한 issue가 아닌경우나 compactly하게 작성 가능할 때(예를들어 매우 반복적으로 작성하거나)는 setup을 필요로하지 않음.
@@ -135,6 +138,10 @@ dl
 
 # 참고자료
 
+[zk-SNARK 변환 과정](https://medium.com/ai-networkkr/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%97%90%EC%84%9C%EC%9D%98-%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8-%EA%B8%B0%EC%88%A0-zk-snark-1-de5804e9b50e)
+
 [영지식 증명기술 동향(국내 자료)](https://webcache.googleusercontent.com/search?q=cache:tqAMdVbpblkJ:https://www.itfind.or.kr/publication/regular/weeklytrend/weekly/view.do%3FboardParam1%3D7961%26boardParam2%3D7961+&cd=2&hl=ko&ct=clnk&gl=kr)
+
 [Diving into the zk-SNARKs Setup Phase(Trusted setup 이유)](https://medium.com/qed-it/diving-into-the-snarks-setup-phase-b7660242a0d7)
+
 [Zk-SNARKs: Under the Hood(비탈릭부테린 포스팅)](https://medium.com/@VitalikButerin/zk-snarks-under-the-hood-b33151a013f6)
