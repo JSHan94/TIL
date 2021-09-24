@@ -1,5 +1,4 @@
 # Today I Learned(TIL) Wiki
 
 
-TBA
-
+수정예정
