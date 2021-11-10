@@ -135,6 +135,13 @@ URS와 달리 SRS는 setup이 비공개 무작위성에 의존함. 고로 fake p
 
 예외적인 예시로는 statement가 충분히 작아서 succintness가 중요한 issue가 아닌경우나 compactly하게 작성 가능할 때(예를들어 매우 반복적으로 작성하거나)는 setup을 필요로하지 않음.
 
+# 관련 프로젝트
+
+[SnarkJS](https://github.com/iden3/snarkjs) : javascript 기반, iden3+circom circuit 활용, Groth16/Plonk
+[BulletProof-dalek](https://github.com/dalek-cryptography/bulletproofs) : Bullet-proof 관련 논문이나 실험에서 많이 사용됨
+[libsnark](https://github.com/scipr-lab/libsnark) : C++ 기반, 대중적으로 많이 쓰임
+[BulletProof-nodejs](https://github.com/santiq/bulletproof-nodejs) : node js 기반, 4.3k stars
+[zkrp](https://github.com/ing-bank/zkrp) : Zero Knowledge Range Proof, Go 기반
 
 # 참고자료
 
