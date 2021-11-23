@@ -25,3 +25,17 @@
     컴포넌트에 메모리를 주는 역할을 함.</li>
   </ul>
 </p>
+
+
+# Core Components
+
+<p>
+  <ul>
+    <li>TextInput : 사용자가 텍스트를 입력할 수 있게하는 컴포넌트. onChangeText를 이용하여 텍스트 변화 감지 가능.</li>
+    <li>ScrollView : 여러 컴포넌트나 뷰를 포함할 수 있는 스크롤링 컨테이너. pagingEnabled를 이용하여 뷰들 간에 수평방향으로 스왑하는 것도 가능함.</li>
+    <li>List Views : FlatList(ScrollView와 달리 스크롤 불가능), SectionList(데이터를 분류하여 렌더하는 것이 가능함)</li>
+    <li>Props : properties. React 컴포넌트를 커스터마이즈하는 것을 가능하게 해줌.</li>
+    <li>State : Props을 컴포넌트가 어떻게 렌더링될 지를 정하는데 사용되는 인자라면, State는 컴포넌트 개별 데이터 스토리지임.</br>
+    컴포넌트에 메모리를 주는 역할을 함.</li>
+  </ul>
+</p>
