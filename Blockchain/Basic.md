@@ -1,52 +1,64 @@
 
 # Node & Client
 
-A node refers to a **running piece of client software.**
-
-A client is an **implementation of blockchain** that verifies all transactions in each block, keeping the network secure and the data accurate.
+<p>
+  A node refers to a <b>running piece of client software.</b><br/>
+  A client is an <b>implementation of blockchain</b> that verifies all transactions in each block, keeping the network secure and the data accurate.
+</p>
 
 [이더리움 공식문서](https://ethereum.org/en/developers/docs/nodes-and-clients/)
 
 # Cryptographic Hash
-
-암호학적으로 collision을 찾기 힘든 해시 함수
-
-SHA-256, keccak256 등
+<p>
+암호학적으로 collision을 찾기 힘든 해시 함수. SHA-256, keccak256 등
+</p>
 
 # Digital signature
 
-트랜잭션을 발생 시켰을 때 소유권을 증명하는 기법
+<p>
+  트랜잭션을 발생 시켰을 때 소유권을 증명하는 기법. ECDSA 타원곡선 암호화 등 <br/>
+  개인키로 암호화 시켜서 공개키로 검증할 수 있게 함.
+</p>
 
-ECDSA 타원곡선 암호화 등
+# Nonce
+
+<p>
+  일반적으로는 PoW에서 연산 속도를 조절하기 위한 난이도를 결정하는 값임. <br/>
+  그렇지만 이더리움과 같은 어카운트 기반의 블록체인에서 트랜잭션 nonce는 현재 트랜잭션이 몇번 수행되었는 지를 알려주는 값임 <br/>
+  트랜잭션이 한 어카운트에서 여러번 실행되는 것을 막는 역할을 함. state가 네트워크 딜레이 등으로 동시에 처리될 수 없기 때문에 막음<br/>
+  이 때문에 이더리움은 비트코인과 달리 병렬처리가 되지 않는 문제가 있음
+</p>
 
 # Accumulator
 
-집합에서 어떤 항목이 있는지 없는지를 확인하는 기법
-
-Blockchain에서는 Merkle Tree를 주로 사용함
+<p>
+  집합에서 어떤 항목이 있는지 없는지를 확인하는 기법. Blockchain에서는 Merkle Tree를 주로 사용함
+</p>
 
 # Key exchange
 
-P2P 통신 시 서로 임의로 만든 키를 교환하고, 암호화 된 상태에서 변조가 되지 않을 것이라 생각하고 데이터 교환함
+<p>
+  P2P 통신 시 서로 임의로 만든 키를 교환하고, 암호화 된 상태에서 변조가 되지 않을 것이라 생각하고 데이터 교환함
+</p>
 
 # RPC (Remote Procedure call)
 
-RPC는 별도의 원격 제어를 위한 코딩 없이 다른 주소 공간에서 함수나 프로시저를 실행할 수 있게 하는 프로세스 간 통신 기술.
-
-RPC를 이용하면 프로그래머는 함수가 실행 프로그램에 로컬 위치이든 원격 위치이든 동일하게 코드 사용 가능 
+<p>
+  RPC는 별도의 원격 제어를 위한 코딩 없이 다른 주소 공간에서 함수나 프로시저를 실행할 수 있게 하는 프로세스 간 통신 기술.<br/>
+  RPC를 이용하면 프로그래머는 함수가 실행 프로그램에 로컬 위치이든 원격 위치이든 동일하게 코드 사용 가능 
+</p>
 
 [Wiki](https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C)
 
 
 # IPFS
 
-IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분산형 파일 시스템에 데이터를 저장하고 인터넷으로 공유하기 위한 프로토콜이다. 냅스터, 토렌트(Torrent) 등 P2P 방식으로 대용량 파일과 데이터를 공유하기 위해 사용한다. 
-
-기존의 HTTP 방식은 데이터가 위치한 곳의 주소를 찾아가서 원하는 콘텐츠를 한꺼번에 가져오는 방식이었지만, IPFS는 데이터의 내용을 변환한 해시값을 이용하여 전 세계 여러 컴퓨터에 분산 저장되어 있는 콘텐츠를 찾아서 데이터를 조각조각으로 잘게 나눠서 빠른 속도로 가져온 후 하나로 합쳐서 보여주는 방식으로 작동한다. 
-
+<p>
+IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분산형 파일 시스템에 데이터를 저장하고 인터넷으로 공유하기 위한 프로토콜이다. 냅스터, 토렌트(Torrent) 등 P2P 방식으로 대용량 파일과 데이터를 공유하기 위해 사용한다. <br/>
+기존의 HTTP 방식은 데이터가 위치한 곳의 주소를 찾아가서 원하는 콘텐츠를 한꺼번에 가져오는 방식이었지만, IPFS는 데이터의 내용을 변환한 해시값을 이용하여 전 세계 여러 컴퓨터에 분산 저장되어 있는 콘텐츠를 찾아서 데이터를 조각조각으로 잘게 나눠서 빠른 속도로 가져온 후 하나로 합쳐서 보여주는 방식으로 작동한다. <br/>
 해시 테이블은 정보를 키와 값의 쌍(key/value pairs)으로 저장하는데, 전 세계 수많은 분산화된 노드들이 해당 정보를 저장하기 때문에 사용자는 IPFS를 사용함으로써 기존 HTTP 방식에 비해 훨씬 빠른 속도로 데이터를 저장하고 가져올 수 있다.
+</p>
 
 [Wiki](http://wiki.hash.kr/index.php/IPFS)
-
 [Medium 아티클](https://medium.com/@kblockresearch/8-ipfs-interplanetary-file-system-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1%EB%B6%80-http-web%EC%9D%84-%EB%84%98%EC%96%B4%EC%84%9C-ipfs-web%EC%9C%BC%EB%A1%9C-46382a2a6539)
 
