@@ -43,6 +43,17 @@
   하지만 BFT 기반의 합의 알고리즘을 쓸 경우 매번 새로운 validator가 추가 될 때마다 모든 validator가 서로를 확인해야하는 과정에서의 비용이 큼.<br/>
 </p>
 
+## CAP 정리
+
+<p>
+  모든 분산 컴퓨팅 시스템은 <b>Consistency, Availability, Partition Tolerance</b> 중 2가지만 달성 가능하다는 정리.<br/>
+  참여노드가 전세계에 분산된 블록체인의 경우 Partition Tolerance를 가지므로 Consitency와 Availability 중 하나만 충족 시키는 것이 가능함.<br/>
+  확률적 Finality를 채택한 경우에는 Availability를 보장함. 네트워크 파티션에서 각 파티션에 포크가 생기고, 네트워크 파티션이 사라지면 longest-chain 규칙에 따라 다시 하나로 합쳐지게 됨.<br/>
+  포크난 상황에서도 계속 합의가 가능하지만 Finality(Consistency)는 보장하지 못함.<br/>
+  이와 달리 절대적 Finality를 선택할 경우 파티션 상황에서 Consistency를 보장함. 네트워크가 반으로 파티션되면 어느 한쪽도 2/3의 투표를 얻지 못해 합의가 불가능함.<br/>
+  파티션이 사라지면 다시 합의 가능. 파티션 상황에서 Availability를 보장하지 못하는 대신 절대적 Finality를 보장할 수 있음.<br/>
+</p>
+
 # SmartContract
 
 <p>
