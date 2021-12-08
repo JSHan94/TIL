@@ -20,6 +20,23 @@
   개인키로 암호화 시켜서 공개키로 검증할 수 있게 함.
 </p>
 
+# SmartContract
+
+<p>
+  특정 주소에 배포되어 있는 TX로 실행가능한 코드
+  <ul>
+    <li>스마트 컨트랙트 소스코드는 함수와 상태를 표현; 컨트랙트 소스코드는 블록체인에 저장 됨</li>
+    <li>함수는 상태를 변경하는 함수, 상태를 변경하지 않는 함수로 나뉨</li>
+    <li>사용자,EOA owner (<-> Contract Account, CA)가 스마트 컨트랙트 함수를 실행하거나 상태를 읽을 때 주소가 필요함</li>
+  </ul>
+  스마트 컨트랙트는 사용자가 실행함
+  <ul>
+    <li>상태를 변경하는 함수를 실행하려면 그에 맞는 TX를 생성하여 블록에 추가 함 (TX체결 = 함수의 실행)</li>
+    <li>상태를 변경하지 않는 함수, 상태를 읽는 행위는 TX가 필요없음 (노드에서 실행). 주로 데이터를 읽는 함수</li>
+  </ul>
+  <b>Contract = Code(함수) + Data(상태)</b><br/>
+</p>
+
 # Nonce
 
 <p>
@@ -34,6 +51,12 @@
 <p>
   이더리움에서 데이터를 serialize하기 위한 인코딩 방식. 길이와 타입을 의미하는 prefix와 함께 데이터를 재귀적으로 표현함.<br/>
   단절된 오프라인 상황에서 개인키를 생성하고 트랜잭션을 바이너리 형태로 생성하는데 유용하기 때문에 사용됨.<br/>
+</p>
+
+# Verifiable Random Function (VRF)
+
+<p>
+  A public-key pseudorandom function that provides proofs that its outputs were calculated correctly <br/>
 </p>
 
 # Accumulator
