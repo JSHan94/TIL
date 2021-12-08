@@ -92,3 +92,15 @@ IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분
 [Wiki](http://wiki.hash.kr/index.php/IPFS)
 [Medium 아티클](https://medium.com/@kblockresearch/8-ipfs-interplanetary-file-system-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1%EB%B6%80-http-web%EC%9D%84-%EB%84%98%EC%96%B4%EC%84%9C-ipfs-web%EC%9C%BC%EB%A1%9C-46382a2a6539)
 
+# Web3
+
+<p>
+  web3.js 와는 전혀 상관 없는 것으로<br/>
+  웹3 재단에서는 웹3.0을 다음과 같은 3가지 특징을 가진 인터넷이라 정의함<br/>
+  <ol>
+    <li> 사용자의 데이터는 기업이 아닌 자신이 소유 </li>
+    <li> 보안성을 가진 글로벌 디지털 거래 </li>
+    <li> 탈중앙화된 정보와 가치의 온라인 거래소 </li>
+  </ol>
+  다시말해 웹3.0은 블록체인이 만들어지고 연결되어 가는 생태계를 의미함<br/>
+</p>
