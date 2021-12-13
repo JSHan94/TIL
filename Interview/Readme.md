@@ -24,8 +24,9 @@
 </details>
 
 <details>
-  <summary>Programmers 하반기 기업 매칭 2 (-)</summary>
+  <summary>Programmers 하반기 기업 매칭 2</summary>
   <p>
+    <b> 코딩테스트(불)</b><br/>
     프로그래머스에서 진행<br/>
     Leetcode Medium ~ Hard 수준<br/>
     여전히 어려웠지만 이전보다는 좀 더 잘 풀리는 느낌.<br/>
