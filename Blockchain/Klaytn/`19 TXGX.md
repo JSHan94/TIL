@@ -22,17 +22,65 @@ Tech Forum by Ground X, 2019년도 발표 요약. [영상링크](https://www.you
 # Klatyn's Network Architecture and Consensus
 
 <p>
-  기존 분산 네트워크의 낮은 처리량과 불확실한 지연 시간이 문제임.
-  모든 노드가 동등하냐라는 질문을 하게되고 이를 통해 노드를 3가지 레이어로 나누게 됨
-  Consensus Node(CN) : 블록 생성을 전담, 신뢰할 수 있는 엔터티(컨소시엄)들이 관리할 수 있도록 함 / 담합의 문제, 공격 대상이 한정되서 위험성 증가
-  Proxy Node Network(PN) : 외부 EN으로부터 받은 트랜잭션을 CN 및 인근 PN에게 전달하고, CN에서 생성된 블록을 EN에 전파
-  Endpoint Node Network(EN) : 서비스나 사용자의 트랜잭션을 PN에 보내는 역할을 함.
-  블록 생성은 Permissioned하게 하고, 사용자들은 제한 없이 네트워크에 참여할 수 있도록 함. (분산 시스템의 한계인듯..)
-  BFT : 즉각적인 Finality / 높은 트랜잭션 메세지 교환(n^2)
-  Klaytn은 Committee 를 추가하여 한 블록을 검증하기 위해 랜덤하게 선택된 CN 노드를 통해 메세지 수를 줄임(이러면 BFT의 1/3 이하의 악의적 공격에 Tolerance하지 않을 것 같은데?)
-  이를 방지하기 위해서 CN 노드들이 Klay를 예치하고 유지하게 해서 악의적 공격을 방지하도록 노력함.
-  또한 Klaytn은 PoS의 블록생성의 불평등을 막기 위해 Gini 계수를 도입함. Staking된 값에 따라 Slot을 생성하여 랜덤하게 셔플하여 블록을 생성 함.
-  
-  
-  
+  기존 분산 네트워크의 낮은 처리량과 불확실한 지연 시간이 문제임<br/>
+  모든 노드가 동등하냐라는 질문을 하게되고 이를 통해 노드를 3가지 레이어로 나누게 됨<br/>
+  Consensus Node(CN) : 블록 생성을 전담, 신뢰할 수 있는 엔터티(컨소시엄)들이 관리할 수 있도록 함 / 담합의 문제, 공격 대상이 한정되서 위험성 증가<br/>
+  Proxy Node Network(PN) : 외부 EN으로부터 받은 트랜잭션을 CN 및 인근 PN에게 전달하고, CN에서 생성된 블록을 EN에 전파<br/>
+  Endpoint Node Network(EN) : 서비스나 사용자의 트랜잭션을 PN에 보내는 역할을 함.<br/>
+  블록 생성은 Permissioned하게 하고, 사용자들은 제한 없이 네트워크에 참여할 수 있도록 함. (분산 시스템의 한계인듯..)<br/>
+  BFT : 즉각적인 Finality / 높은 트랜잭션 메세지 교환(n^2)<br/>
+  Klaytn은 Committee 를 추가하여 한 블록을 검증하기 위해 랜덤하게 선택된 CN 노드를 통해 메세지 수를 줄임(이러면 BFT의 1/3 이하의 악의적 공격에 Tolerance하지 않을 것 같은데?)<br/>
+  이를 방지하기 위해서 CN 노드들이 Klay를 예치하고 유지하게 해서 악의적 공격을 방지하도록 노력함<br/>
+  또한 Klaytn은 PoS의 블록생성의 불평등을 막기 위해 Gini 계수를 도입함. Staking된 값에 따라 Slot을 생성하여 랜덤하게 셔플하여 블록을 생성 함<br/>
+  Reward는 Proposer,PoC(Proof of Contribution),KIR(Klaytn Improvement Reserve)로 나뉘어져서 분배됨<br/>
+  블록이 특정한 문제로 제대로 동작되지 않을 때(Proposer가 블록을 제안하지 않거나, prepare나 commit에서 2/3 이상 Voting을 못받는 경우) -> Roundchange 진행<br/>
+</p>
+
+
+# Account and Transaction Model in Klaytn
+
+<p>
+  Account : 유저와 컨트랙트의 정보를 저장하는 데이터 구조 (Nonce, Balance, CodeHash, Storage Root 등)
+  Transaction : 블록체인의 State를 변경하는 기능
+  클레이튼은 세가지 관점에서 Mass adoption을 노력함 : 사용자 관점, 서비스 제공자 관점
+  사용자 관점
+  <ul>
+  <li/>개인키가 유출되면 새로운 개인키를 발급할 수밖에 없는데, 이 때문에 Address가 변경되어야 하는 것은 너무 불편함. 또한 Tx History도 잃는 것이 문제임
+  <li/>이를 위해 Public key와 Address의 관계를 끊고 Account에 Public key라는 데이터 타입을 추가함
+  <li/>또한 Account의 Security를 위해 Multisig를 구현하고자 하였음. 근데 이는 스마트 컨트랙트 등으로 구현하기는 어려워 플랫폼 수준으로 낮춰서 멀티시그 기능을 개발함.
+  </ul>
+  서비스 제공자 관점 
+  <ul>
+  <li/>Fee delegation과 같이 트랜잭션 Fee를 서비스 제공자가 낼 수 있게하여 다양한 방법으로 사용자를 끌어들일 전략을 세울 수 있게함.
+  <li/>이를 위해 트랜잭션에 Fee payer address, Fee payer signature 필드를 추가함.
+  <li/>Sender가 Fee Payer에게 전달하고, 이것이 클레이튼에 기록되게 함. (이렇게 하면 트랜잭션이 복잡해지니 Fee cost가 증가하지는 않는가?)
+  <li/>Accout에 Role이 다르기 때문에 이를 위해 어카운트에 추가 된 Key 필드를 확장함; Public key, Multiple public keys, Role-based keys
+  <li/>서비스 제공자가 사용자가 키를 분실하여도, RoleUpdate를 해줌으로 특정 계정을 계속 사용할 수 있도록 하는 것이 가능함
+  <li/>Explicit한 타입을 제공하고자 노력함
+  </ul>
+  플랫폼 개발자 관점
+  <ul>
+  <li/>어카운트 타입을 컨트랙트와 유저로 분리하였음(이더리움에서 EOA와 CA 구별하기 힘들었던 기억이..)
+  <li/>User Account에 Codehash등이 포함되지 않아도 되서 저장 용량 감소의 효과 또한 있음
+  <li/>트랜잭션 타입도 이와 유사하게 분리하여 스토리지 코스트를 감소하는 것도 가능했음
+  </ul>
+  이외에도 Human-readable address, Account와 트랜잭션 타입을 더 늘리고자 함
+</p>
+
+# Data Layer Architecture & Optimizations
+
+<p>
+  기존 데이터 레이어(메모리 & 디스크)의 문제
+  <ul>
+  <li/>State trie : 어카운트의 데이터를 저장하는 자료 구조. Merkle Patricia Trie 구조가 주로 사용됨. 
+  <li/>어카운트 개수가 늘어나면 Trie가 커지기 때문에 메모리 상에서 관리가 불가능함 -> 디스크 영역에서 관리
+  <li/>key-value store DB. 하나의 LevelDB에 모든 데이터(Block, Receipts, State 등)를 저장함
+  <li/>필요한 데이터를 가져오기 위해 디스크에 접근해야하는데 이는 상당한 성능 저하를 가져올 수 있음. 이런 병목 현상을 줄이기 위해 노력해야함.
+  </ul>
+  클레이튼의 시도
+  <img >
+  <ul>
+  <li/>메모리 영역에서 State Trie Node Cache를 추가하여 디스크 영역 접근을 줄여줌
+  <li/>
+  </ul>
 </p>
