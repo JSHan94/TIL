@@ -96,3 +96,31 @@ Tech Forum by Ground X, 2019년도 발표 요약<br/>
   <li/>마이그레이션은 추가적으로 해야되는 작업이므로 trade-off를 잘 핸들링 해야함
   </ul>
 </p>
+
+# Horizontal Scaling through Service Chain in Klaytn
+
+<p>
+  <b>서비스체인을 사용하는 이유</b>
+  <ul>
+    <li/>테스트 용도 : Mainnet/Testnet과 별도로 자체 테스트 시
+    <li/>Token 전용 DB : token 정보 관리에 최적화된 database로 사용하고 싶을 때
+    <li/>비용 : Public blockchain의 사용 비용이 부담될 때
+    <li/>신뢰 : 자체 블록체인이지만, Mainnet과 연결하여 User의 신뢰를 얻고 싶을 때(Anchoring)
+    <li/>보안 : Chain data를 공개하고 싶지 않거나 네트워크 접근권한을 한정하고 싶을 때
+    <li/>성능 : 높은 TPS가 요구되는 서비스를 위해
+    <li/>커스터마이징 : 다양한 feature를 수정하는 것이 가능함
+  </ul>
+  <b>Anchoring</b>
+  <ul>
+  <li/>서비스 제공자가 사용자들의 신뢰를 얻기 위해 주기적으로 서비스 체인 데이터를 Main-chain에 기록하는 것
+  <li/>Integrity : 데이터 변조를 탐지하는 것이 가능함
+  <li/>Statistics : 서비스체인의 통계자료를 얻는 것이 가능함
+  </ul>
+  <b>Value Transfer</b>
+  <ul>
+  <li/>Bridge contract를 이용해서 Mint와 Burn을 통해 Value Transfer을 하게 함
+  <li/>그렇지만 이 같은 방식은 2번의 TX를 요구하기 때문에 UX가 좋지 못함
+  <li/>클레이튼은 이를 위해 1개의 TX만으로 Value Transfer가 일어나도록 함
+  <li/>또한 Multi-channel을 통해 서비스 체인과 통신의 병목현상을 막았으며, Multi-sig를 통해 다수의 operator의 승인을 요구할 수 있음
+  </ul>
+</p>
