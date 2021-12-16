@@ -1,7 +1,7 @@
 # Today I Learned(TIL) Wiki
 
 [![Since](https://img.shields.io/badge/since-2021.03.01-333333.svg?style=flat-square)](https://JSHan94.github.io)
-[![author](https://img.shields.io/badge/author-gyoogle-0066FF.svg?style=flat-square)](https://JSHan94.github.io)
+[![author](https://img.shields.io/badge/author-JSHan94-0066FF.svg?style=flat-square)](https://JSHan94.github.io)
 
 
 ## Computer Science
