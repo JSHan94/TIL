@@ -1,5 +1,53 @@
+# 블록체인 최신 기술 동향
 
-# Node & Client
+- 1세대(BTC) : 서로 신뢰할 수 없는 사람들 간의 온라인 상에서 P2P로 가치를 전달할 수 있는 디지털 화폐
+- 2세대(ETH) : 전 세계에 분포된 컴퓨터가 인간의 운영 없이 스스로 구동할 수 있는 어플리케이션 플랫폼
+
+# 기초 개념
+
+## Public vs Private Blockchain
+
+TB
+컨소시움, 하이브리드 블록체인이 있기는 하지만 결국 Private에 속하지 않나라고 생각 함
+
+
+## Why Blockchain is Disruptive Tech?
+
+블록체인에 사용되는 기술들은 사실 새로운 것이 없음(PKI, Merkle tree, SHA, PoW, ECC). 하지만 비트코인이란 프로젝트를 시작으로 새로운 개념이 만들어짐. 기존에는 데이터 컨트롤을 관리자가 전담하였지만 블록체인 기술을 통해 규칙을 기반으로 여러 엔터티가 공동의 합의를 통해 결정하는 것이 가능해짐. 즉, 법칙 기반의 단일 데이터에 대한 공동 관리가 가능해짐
+
+[참고 아티클](https://brunch.co.kr/@mobiinside/935)
+
+
+## Token Economy & Governance
+
+- Token Economy : 코인과 토큰을 서비스에 제공하여 참여자들이 특정 행위에 대해 보상을 받게하여 시스템을 활성화 시키고자하는 경제 생태계. 
+- Governance : 블록체인에서 의사결정이 이루어지는 과정 (the process by which decision are made).
+
+
+## IPO/ICO/IEO/STO
+
+- IPO : Initial Public Offering. 기업공개, 주식에서의 상장
+- ICO : Initial Coin Offering. 암호화폐 공개
+- IEO : Initial Exchange Offering. 거래소를 통해 자금유치를 대행하는 개념
+- IBO : Initial Bounty Offering. 암호화폐 대가 공개. 백서 번역, SNS 활동, 사용자 등록과 검증 등 블록체인 생태계 형성 기여에 대한 보상
+- STO : Security Token Offering. 실물자산을 근거로 이윤의 일부를 배당으로 받거나 소유권 주장 가능하게하는 토큰. IPO에 비해 저렴
+
+
+## UTXO와 Account 모델
+
+<img src="https://mblogthumb-phinf.pstatic.net/MjAyMDA5MTJfMTI5/MDAxNTk5ODkwMzM3MDI1.wffCdDVRXlVU6y1G2gKS2PzlHptvHKXUdbvOUuptQMcg.kB3txHZ9w6JFIZ5qLD6MYPww1Rrl1-KoJuqztj4aZMwg.PNG.pcmola/1_eAKr5SIZfWXwC9dFBOmS3Q.png?type=w800"/>
+- UTXO : UTXO의 트랜잭션은 입력으로는 사용되지 않은 지출 목록(UTXO)를 받고, 출력으로는 새로운 UTXO를 만들어냄. 한 번 사용된 UTXO는 목록에서 제거 됨.
+    - 동시에 여러 트랜잭션을 처리할 수 있는 **확장성**
+    - 매 거래마다 새로운 주소를 활용하여 **(pseudo) 익명성**
+    - UTXO는 한번 사용된 후 사라지기 때문에 이중 지불을 방지할 수 있음
+    - UTXO가 과도하게 생성될 경우 흩어진 코인을 모두 모아야하는 번거로움과 불필요한 수수료를 내야할 문제가 생길 수 있음
+- Account : Global State가 각 계정의 Balance를 추적 함. 
+    - 직관적이고 상태 추적이 가능한 **단순성** 
+    - 거래 검증 시 충분한 잔액을 가지고 있는 지만 확인하면 되는 **효율성**
+    - 하지만 이는 Double Spending의 가능성이 있어, 이더리움은 모든 계정이 공개적으로 볼 수 있는 nonce를 이용하여 두번 이상 제출 되는 것을 막음
+
+
+## Node & Client
 
 <p>
   A node refers to a <b>running piece of client software.</b><br/>
