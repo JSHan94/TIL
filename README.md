@@ -10,15 +10,15 @@
   <summary>📌 Blockchain</summary>
 
  - ### Blockchain
-    - [기술 동향 및 개념 이해]()
+    - [기술 동향 및 개념 이해](https://github.com/JSHan94/TIL/tree/main/Blockchain#readme)
       - 블록체인의 최신 기술 동향
       - Public vs Private Blockchain
       - Why Blockchain is Disruptive?
       - Token Economy & Governance
       - IPO/ICO/IEO/STO
-      - UTXO와 Balance 모델
-    - [합의 알고리즘]()
-      - 합의 알고리즘이란? 필요성은? <!--Safety, Liveness, Consensus가 이루어지는 방법, Finality-->
+      - UTXO와 Account 모델
+    - 합의 알고리즘
+      - [합의가 이루어지는 과정]() <!--Safety, Liveness, Consensus가 이루어지는 방법, Finality-->
       - PoW vs PoS vs DPoS
       - BFT, PBFT
       - Tendermint
