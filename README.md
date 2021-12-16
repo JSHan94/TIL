@@ -41,10 +41,11 @@
       - 대칭 키 vs 비대칭 키 <!--AES, RSA,PKI-->
       - 디지털 서명 알고리즘 <!--ECDSA-->  
       - Zero-Knowledge Proof
-    - [보안]()
+    - Security
       - 블록체인 Attack 종류 및 대응 방안 <!--합의 알고리즘별 대응, DDos, 코드보안, Reentrancy-->
       - 키 관리 <!--HSM,Multi-sig,MPC, Shamir Secret Sharing, HD Wallet-->
       - 지갑 관리 <!--HD Wallet, -->
+      - [Blockchain Privacy 프로젝트](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/Blockchain%20Privacy%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.md)
     - [Smart Contract]()
       - 스마트 컨트랙트의 개념과 동작 원리
       - 컨트랙트 개발 시 제약 사항
