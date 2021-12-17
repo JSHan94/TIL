@@ -16,7 +16,7 @@ Eric Brewer가 1998에 낸 가설로, 2002년에 정리로 입증 됨<br/>
 - Fail-stop fault : 노드가 고장난 경우 발생하는 장애 정지 결함
 - Byzantine Fault : 노드가 악이적이거나 임의로 consistency에 어긋난 동작을 하는 경우. PBFT가 이를 해결하는 데 적합함.
 
-확률적 Finality를 채택한 경우에는 Availability를 보장함. 네트워크 파티션에서 각 파티션에 포크가 생기고, 네트워크 파티션이 사라지면 longest-chain 규칙에 따라 다시 하나로 합쳐지게 됨<br/>
+확률적 Finality를 채택한 경우에는 Availability를 보장함. 네트워크 파티션에서 각 파티션에 포크가 생기고, 네트워크 파티션이 사라지면 longest-chain 규칙에 따라 다시 하나로 합쳐지게 됨. 이런 것을 시간이 지나면서 Consistency가 보장되어 Eventual consistency라고 불림<br/>
 포크난 상황에서도 계속 합의가 가능하지만 Finality(Consistency)는 보장하지 못함<br/>
 이와 달리 절대적 Finality를 선택할 경우 파티션 상황에서 Consistency를 보장함. 네트워크가 반으로 파티션되면 어느 한쪽도 2/3의 투표를 얻지 못해 합의가 불가능함
 파티션이 사라지면 다시 합의 가능. 파티션 상황에서 Availability를 보장하지 못하는 대신 절대적 Finality를 보장할 수 있음<br/>
