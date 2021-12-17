@@ -68,19 +68,35 @@
 
 [이더리움 공식문서](https://ethereum.org/en/developers/docs/nodes-and-clients/)
 
-# Cryptographic Hash
+## 블록의 일반적 구조
+
+<p>
+    <img src="https://steemitimages.com/p/2FFvzA2zeqoVZ5NRzV2o8MyJEzowAL6rjbt8w3dTGpUdKftDHiMJKETpjxquKcdhhAZYWXERxofcjZ6V2AQugwz8ke3UAceG7GNj1ZKhogzK3ngrA9QMPspiszQyL?format=match&mode=fit&width=640">
+</p>
+
+## Turing Complete
+
+<p>
+    Turing Complete는 어떤 복잡한 알고리즘이든 수행할 수 있는 Turing Machine을 의미 함<br/>
+    Turing Complete가 되기 위해서는 루프와 분기 기능이 필요함<br/>
+    비트코인의 스크립트 언어는 표준 산술 연산만 지원하기 때문에 Turing incomplete하고 이더리움의 Solidity는 Turing Complete 함<br/>
+    Turing Complete한 코드를 블록체인 상에서 사용하려면 Virtual Machine을 사용해야 함<br/>
+    
+</p>
+
+## Cryptographic Hash
 <p>
 암호학적으로 collision을 찾기 힘든 해시 함수. SHA-256, keccak256 등
 </p>
 
-# Digital signature
+## Digital signature
 
 <p>
   트랜잭션을 발생 시켰을 때 소유권을 증명하는 기법. ECDSA 타원곡선 암호화 등 <br/>
   개인키로 암호화 시켜서 공개키로 검증할 수 있게 함.
 </p>
 
-# Finality
+## Finality
 
 <p>
   블록체인에서 Finality란 트랜잭션이 블록에 포함되고, 되돌릴 수 없는 상태를 의미함. 크게 확률적 finality와 절대적 finality가 존재함<br/>
@@ -117,7 +133,7 @@
 </p>
 </details>
 
-# SmartContract
+## SmartContract
 
 <p>
   특정 주소에 배포되어 있는 TX로 실행가능한 코드
@@ -134,7 +150,7 @@
   <b>Contract = Code(함수) + Data(상태)</b><br/>
 </p>
 
-# Nonce
+## Nonce
 
 <p>
   일반적으로는 PoW에서 연산 속도를 조절하기 위한 난이도를 결정하는 값임. <br/>
@@ -143,14 +159,14 @@
   이 때문에 이더리움은 비트코인과 달리 병렬처리가 되지 않는 문제가 있음
 </p>
 
-# RLP Algorithm
+## RLP Algorithm
 
 <p>
   이더리움에서 데이터를 serialize하기 위한 인코딩 방식. 길이와 타입을 의미하는 prefix와 함께 데이터를 재귀적으로 표현함.<br/>
   단절된 오프라인 상황에서 개인키를 생성하고 트랜잭션을 바이너리 형태로 생성하는데 유용하기 때문에 사용됨.<br/>
 </p>
 
-# Verifiable Random Function (VRF)
+## Verifiable Random Function (VRF)
 
 <p>
   A public-key pseudorandom function that provides proofs that its outputs were calculated correctly <br/>
@@ -164,19 +180,19 @@
   </ol>
 </p>
 
-# Accumulator
+## Accumulator
 
 <p>
   집합에서 어떤 항목이 있는지 없는지를 확인하는 기법. Blockchain에서는 Merkle Tree를 주로 사용함
 </p>
 
-# Key exchange
+## Key exchange
 
 <p>
   P2P 통신 시 서로 임의로 만든 키를 교환하고, 암호화 된 상태에서 변조가 되지 않을 것이라 생각하고 데이터 교환함
 </p>
 
-# RPC (Remote Procedure call)
+## RPC (Remote Procedure call)
 
 <p>
   RPC는 별도의 원격 제어를 위한 코딩 없이 다른 주소 공간에서 함수나 프로시저를 실행할 수 있게 하는 프로세스 간 통신 기술.<br/>
@@ -186,7 +202,7 @@
 [Wiki](https://ko.wikipedia.org/wiki/%EC%9B%90%EA%B2%A9_%ED%94%84%EB%A1%9C%EC%8B%9C%EC%A0%80_%ED%98%B8%EC%B6%9C)
 
 
-# IPFS
+## IPFS
 
 <p>
 IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분산형 파일 시스템에 데이터를 저장하고 인터넷으로 공유하기 위한 프로토콜이다. 냅스터, 토렌트(Torrent) 등 P2P 방식으로 대용량 파일과 데이터를 공유하기 위해 사용한다. <br/>
@@ -197,7 +213,7 @@ IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분
 [Wiki](http://wiki.hash.kr/index.php/IPFS)
 [Medium 아티클](https://medium.com/@kblockresearch/8-ipfs-interplanetary-file-system-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1%EB%B6%80-http-web%EC%9D%84-%EB%84%98%EC%96%B4%EC%84%9C-ipfs-web%EC%9C%BC%EB%A1%9C-46382a2a6539)
 
-# Web3
+## Web3
 
 <p>
   web3.js 와는 전혀 상관 없는 것으로<br/>
@@ -210,9 +226,9 @@ IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분
   다시말해 웹3.0은 블록체인이 만들어지고 연결되어 가는 생태계를 의미함<br/>
 </p>
 
-# Merkle Tree vs Merkle Patricial Tree
+## Merkle Tree vs Merkle Patricial Tree
 
-## Merkle Tree
+### Merkle Tree
 <p>
   머클 트리는 블록에 포함된 거래를 트리 형태로 요약한 것. 블록이 보유하고 있는 거래내역들의 해시 값을 가장 가까운 거래 내역끼리 쌍을 지어 해시화 하고, 쌍을 지을 수 없을 때까지 해당 과정을 반복하여 완성되는데, 이를 통해 다수의 데이터를 하나로 묶어 용량을 절약할 수 있음. <br/>
   머클 트리에서는 모든 거래내역들을 해시화한 머클 루트를 통해 트리 내에 거래 내역의 변동 여부를 쉽게 확인하고, 이 루트를 헤더에 담아 트랜잭션의 유효성을 보장함. <br/>
@@ -224,7 +240,7 @@ IPFS(아이피에프에스)는 "InterPlanetary File System"의 약자로서, 분
   </ol>
 </p>
 
-## Merkle Patricia Tree
+### Merkle Patricia Tree
 
 <p>
   이더리움에서 사용하는 방식. PATRICIA 는 Practical Algorithm To Retrieve Information Coded In Alphanumeric의 약자로 영숫자로 코딩된 정보를 검색하는 알고리즘을 뜻 함. <br/>
