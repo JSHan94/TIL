@@ -19,11 +19,12 @@
       - UTXO와 Account 모델
     - 합의 알고리즘
       - [합의가 이루어지는 과정]() <!--Safety, Liveness, Consensus가 이루어지는 방법, Finality-->
+      - [CAP 정리와 블록체인](https://github.com/JSHan94/TIL/blob/main/Blockchain/Ledger/CAP%20%EC%A0%95%EB%A6%AC%EC%99%80%20%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8.md)
       - PoW vs PoS vs DPoS
       - BFT, PBFT
       - Tendermint
       - Raft
-    - [Ledger]()
+    - Ledger
       - Blockchain의 구조와 Ledger의 트리 구조
       - 블록체인의 구조  <!--블록헤더/바디, 머클트리/패트리시아트리-->
       - Blockchain TX Flow
