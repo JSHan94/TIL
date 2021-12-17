@@ -96,42 +96,6 @@
   개인키로 암호화 시켜서 공개키로 검증할 수 있게 함.
 </p>
 
-## Finality
-
-<p>
-  블록체인에서 Finality란 트랜잭션이 블록에 포함되고, 되돌릴 수 없는 상태를 의미함. 크게 확률적 finality와 절대적 finality가 존재함<br/>
-  비트코인에서 네트워크 딜레이 등으로 각 노드가 가지고 있는 체인이 다를 수가 있는데, 이런 상태는 finality가 보장되지 않은 것 임.<br/>
-  실제 서로 다른 블록체인을 갖고 있는 노드가 만날 경우 서로 경쟁하게 됨.<br/>
-</p>
-
-<details>
-<summary>확률적 Finality</summary>
-<p>
-  블록을 되돌릴 수 없다는 것이 확률적으로만 보장 됨. 비트코인의 경우가 해당됨.<br/>
-  해시파워가 25%인 악의적 공격자가 비트코인을 공격할 경우 6개의 블록의 컨펌이 있다면, 해당 트랜잭션은 99% 이상의 확률로 배제되어 질 수 있음.<br/>
-</p>
-</details>
-
-<details>
-<summary>절대적 Finality</summary>
-<p>
-  한번 블록이 결정 되면 어떤 경우에도 되돌릴 수 없는 형태. 텐더민트 같은 BFT 계열의 합의 알고리즘이 해당됨.<br/>
-  voting power의 2/3 prevote와 2/3의 pre commit을 받으면 해당 블록은 finalize 됨.<br/>
-  하지만 BFT 기반의 합의 알고리즘을 쓸 경우 매번 새로운 validator가 추가 될 때마다 모든 validator가 서로를 확인해야하는 과정에서의 비용이 큼.<br/>
-</p>
-</details>
-
-<details>
-<summary>CAP 정리</summary>
-<p>
-  모든 분산 컴퓨팅 시스템은 <b>Consistency, Availability, Partition Tolerance</b> 중 2가지만 달성 가능하다는 정리.<br/>
-  참여노드가 전세계에 분산된 블록체인의 경우 Partition Tolerance를 가지므로 Consitency와 Availability 중 하나만 충족 시키는 것이 가능함.<br/>
-  확률적 Finality를 채택한 경우에는 Availability를 보장함. 네트워크 파티션에서 각 파티션에 포크가 생기고, 네트워크 파티션이 사라지면 longest-chain 규칙에 따라 다시 하나로 합쳐지게 됨.<br/>
-  포크난 상황에서도 계속 합의가 가능하지만 Finality(Consistency)는 보장하지 못함.<br/>
-  이와 달리 절대적 Finality를 선택할 경우 파티션 상황에서 Consistency를 보장함. 네트워크가 반으로 파티션되면 어느 한쪽도 2/3의 투표를 얻지 못해 합의가 불가능함.<br/>
-  파티션이 사라지면 다시 합의 가능. 파티션 상황에서 Availability를 보장하지 못하는 대신 절대적 Finality를 보장할 수 있음.<br/>
-</p>
-</details>
 
 ## SmartContract
 
