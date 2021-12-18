@@ -37,11 +37,11 @@
       - Multicast
     - [Storage]()
       - IPFS 
-    - [암호학]()
+    - Cryptography
       - Hash 알고리즘 <!--SHA 256, Keecak-256-->
       - 대칭 키 vs 비대칭 키 <!--AES, RSA,PKI-->
       - 디지털 서명 알고리즘 <!--ECDSA-->  
-      - Zero-Knowledge Proof
+      - [Zero-Knowledge Proof](https://github.com/JSHan94/TIL/blob/main/Blockchain/Cryptography/Zero-Knowledge%20proof.md)
     - Security
       - 블록체인 Attack 종류 및 대응 방안 <!--합의 알고리즘별 대응, DDos, 코드보안, Reentrancy-->
       - 키 관리 <!--HSM,Multi-sig,MPC, Shamir Secret Sharing, HD Wallet-->
