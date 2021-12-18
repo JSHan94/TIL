@@ -10,7 +10,7 @@
   <summary>📌 Blockchain</summary>
 
  - ### Blockchain
-    - [기술 동향 및 개념 이해](https://github.com/JSHan94/TIL/tree/main/Blockchain#readme)
+    - [기술 동향 및 개념 이해](https://github.com/JSHan94/TIL/blob/main/Blockchain/Basic.md)
       - 블록체인의 최신 기술 동향
       - Public vs Private Blockchain
       - Why Blockchain is Disruptive?
@@ -19,24 +19,25 @@
       - UTXO와 Account 모델
     - 합의 알고리즘
       - [합의가 이루어지는 과정]() <!--Safety, Liveness, Consensus가 이루어지는 방법, Finality-->
-      - [CAP 정리와 블록체인](https://github.com/JSHan94/TIL/blob/main/Blockchain/Ledger/CAP%20%EC%A0%95%EB%A6%AC%EC%99%80%20%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8.md)
-      - PoW vs PoS vs DPoS
-      - BFT, PBFT
-      - Tendermint
-      - Raft
-    - Ledger
-      - Blockchain의 구조와 Ledger의 트리 구조
-      - 블록체인의 구조  <!--블록헤더/바디, 머클트리/패트리시아트리-->
-      - Blockchain TX Flow
-      - Sharding
-    - [Network]()
-      - P2P 통신
-      - Gassip Protocol
+      - [Finality](https://github.com/JSHan94/TIL/blob/main/Blockchain/Consensus/Finality.md)
+      - [PoW vs PoS vs DPoS]()
+      - [BFT, PBFT]()
+      - [Tendermint]()
+      - [Raft]()
+    - Network
+      - [P2P Network](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/P2P%20Network.md)
+      - [Gassip Protocol](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/Gassip%20Protocol.md)
       - Membership Protocol
       - Paxos
       - Multicast
-    - [Storage]()
-      - IPFS 
+    - Storage
+      - [Blockchain의 구조와 Ledger의 트리 구조]()
+      - [블록체인의 구조]()  <!--블록헤더/바디, 머클트리/패트리시아트리-->
+      - [Blockchain TX Flow]()
+      - [Sharding]()
+      - [IPFS](https://github.com/JSHan94/TIL/blob/main/Blockchain/Storage/IPFS.md)
+      - [CAP 정리](https://github.com/JSHan94/TIL/blob/main/Blockchain/Storage/CAP%20%EC%A0%95%EB%A6%AC.md)
+
     - Cryptography
       - Hash 알고리즘 <!--SHA 256, Keecak-256-->
       - 대칭 키 vs 비대칭 키 <!--AES, RSA,PKI-->
