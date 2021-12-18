@@ -116,6 +116,31 @@ Schwartz-zippel lemma에 따르면 서로 다른 다항식은 대부분의 점�
 여기서 임의의 점(평가에 사용할 QAP 다항식에서의 점)이라는 것이 Trusted setup 단계에서의 공개 매개 변수(CRS)로 부터 생성이 됨.<br/>
 만약 정직하게 CRS가 생성이 되었다면 누구도 점에 대해서 알 수 없으며 부정한 다항식이나 증명을 생성할 수 가 없음<br/>
 
+## ZK-STARKS
+
+ZK-Succint Tranparent ARgument of Knowledge. Succint 대신 Scalable이라고도 함.<br/>
+
+특징 
+- 연산의 크기가 증가하더라도 소요시간의 증가는 거의 없음(SNARK는 더 많은 소요 시간을 요구함)
+- 대신 증명의 크기가 SNARK나 Bulletproof보다 큼
+- Trusted Setup 과정이 없음
+- 더 간단한 암호화 가정에 기반 (타원 곡선이 불필요하며 해시와 정보 이론에만 의존함)
+- Post-Quantum을 확보하고 있음
+
+## Bulletproofs
+
+벡터의 공개하지 않으면서도 알고 있음을 간결하게 보이는 영지식 증명<br/>
+내적증명(inner proof) : 공개하지 않은 스칼라 값이 공개하지 않은 벡터의 내적임을 증명
+- Groth가 논문에서 제시한 핵심 알고리즘에서 시작
+- Bootle의 재귀개념을 도입하여 더 간결한 내적 증명으로 변형
+- Bonz 외 연구자들이 제시한 더 간결한 형태의 내적 증명이 Bulletproofs
+내적 증명을 통해 적용할 수 있는 대표적인 예가 Range proof임<br/>
+
+## ZKP protocol 비교
+
+<p align="centering">
+  <img src="https://github.com/JSHan94/TIL/blob/main/Blockchain/images/ZKP%20protocols.png"/>
+</p>
 
 
 # 관련 프로젝트
