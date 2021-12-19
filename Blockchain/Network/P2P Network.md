@@ -33,8 +33,72 @@ DNS seeds가 인증 받지 않았거나 악의적인 공격자 또는 Man-in-the
 
 ## Initial Block Download
 
+풀 노드가 새로운 트랜잭션을 검증하기 위해서는 기존에 mined 된 모든 블록에 대한 정보를 받아야 함
+이 과정을 Initial Block Download (IBD) 또는 Inital sync라고 함
+비트코인의 경우 최신 블록보다 144 블록(24시간 정도) 이상 뒤쳐져 있거나 하면 IBD가 실행 됨
+
+## Block-First
+
+비트코인에서 IBD는 best block chain에서 블록을 다운로드하는 것이 목표이며, Block-First라고도 불림
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-blocks-first-flowchart.svg">
+</p>
+
+1. **GetBlocks Message** : IBD -> Sync, 하나 이상의 블록 헤더 정보 전달
+    - Sync Node는 IBD 노드가 연결한 Remote node
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-getblocks.svg">
+</p>
+
+2. **Inv Message** : Sync -> IBD, 최대 500개의 block inventory (블록 정보)를 보내줌
+    - Inventory : 네트워크에서 정보에 대한 unique identifier
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-getblocks.svg">
+</p>
+
+3. **GetData Message** : IBD -> Sync, 하나 이상의 블록 inventory 
+    - IBD 노드는 블록의 부모 블록을 받기 전까지 검증할 수 가 없음
+    - 부모 블록이 없어서 검증 받지 못하는 블록을 orphan(고아) 블록이라고 함
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-getdata.svg">
+</p>
+
+4. **Block** : Sync -> IBD, 하나의 serialized 된 블록
+    - 각 블록 요청에 대한 블록 정보를 전달 함
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-block.svg">
+</p>
+
+5. **Second GetBlock Message**
+    - IBD 노드는 각 블록을 다운로드하고 유효성을 검사한 다음 다운로드할 최대 128개 블록을 큐에 유지하면서 다음 블록 요청
+    - 블록을 요청하면 Sync 노드에 추가로 GetBlock 메세지를 보냄
+    - 일치하는 해시를 찾아 해당 지점의 다음 블록부터 시작하여 500개의 블록 인벤토리로 응답함
+    - 만약 일치하는 해시를 못찾은 경우 두 노드가 공통으로 갖는 유일한 노드를 0으로 가정하고 블록 1부터 재 전송함
+    - 이런 반복 검색을 통해 IBD 노드의 로컬 블록체인이 Sync 노드의 로컬 블록체인에서 분기되더라도 Sync 노드는 더 가능성 높은 블록 정보를 보낼 수 있음
+    - 이 포크 감지는 IBD 노드가 블록 체인의 끝에 가까워질수록 점점 더 유용해집니다. 
+
+## Block-First IBD pros & cons
+
+Pros
+- Simplicity
+
+Cons
+- Speed Limit : IBD가 단일 Sync node에 의존하면 대역폭의 제한으로 다운로드 낮아짐
+- Download Restart : IBD 노드는 다운로드가 완료되기 전까지 longest chain인지 알 수가 없음
+- Disk Fill Attack : longest chain이 아닌 무의미한 정보로 disk를 채우는 공격을 할 수가 있음
+- High memory Use : Sync 노드는 블록 순서에 상관없는 블록을 보낼 수 있기 때문에 Orphan 블록으로 메모리 리소스 낭비 가능
+
+Bitcoin core는 Header-First IBD를 통해 이런 단점들을 일부 또는 전체 해결하고 있음
 
 
+## Header-First
+
+TBA
 
 # 참고자료
 
