@@ -33,9 +33,9 @@ DNS seeds가 인증 받지 않았거나 악의적인 공격자 또는 Man-in-the
 
 ## Initial Block Download
 
-풀 노드가 새로운 트랜잭션을 검증하기 위해서는 기존에 mined 된 모든 블록에 대한 정보를 받아야 함
-이 과정을 Initial Block Download (IBD) 또는 Inital sync라고 함
-비트코인의 경우 최신 블록보다 144 블록(24시간 정도) 이상 뒤쳐져 있거나 하면 IBD가 실행 됨
+풀 노드가 새로운 트랜잭션을 검증하기 위해서는 기존에 mined 된 모든 블록에 대한 정보를 받아야 함<br/>
+이 과정을 Initial Block Download (IBD) 또는 Inital sync라고 함<br/>
+비트코인의 경우 최신 블록보다 144 블록(24시간 정도) 이상 뒤쳐져 있거나 하면 IBD가 실행 됨<br/>
 
 ## Block-First
 
@@ -135,9 +135,46 @@ Miner가 새로운 블록을 생성하면 그 블록을 다음 중 하나의 방
 - Standard Block Relay
     - Miner가 standard relay node 역할을 하며 "inv" message를 새로운 블록에 대한 inventory와 함께 피어인 풀노드와 SPV 모두에게 보냄
     - 이에 대한 response는 다음과 같음
-    - **block-first** 피어는 full block을 요구하는 "getdata" message를 보냄
-    - **header-first** 피어는 highest-height header의 해시를 포함한 "getheaders" message의 응답을 요청함. 이후 full block 정보를 요청함. header를 먼저 요청함으로써 header-first 피어는 ophan block을 거절하는 것이 가능함
+    - **block-first(BF)** 피어는 full block을 요구하는 "getdata" message를 보냄
+    - **header-first(HF)** 피어는 highest-height header의 해시를 포함한 "getheaders" message의 응답을 요청함. 이후 full block 정보를 요청함. header를 먼저 요청함으로써 header-first 피어는 ophan block을 거절하는 것이 가능함
     - **Simplified Payment Verification(SPV)** 클라이언트는 merkle block을 요청하는 "getdata" message의 응답을 요구함
+
+|Message|From->To|Payload|
+|:---|:---:|---|
+|inv|Relay->Any|The inventory of the new block|
+|getdata|BF->Relay|The inventory of the new block|
+|getheaders|HF->Relay|One or more header hashes on the HF node’s best header chain (BHC)|
+|headers|Relay→HF|Up to 2,000 headers connecting HF node’s BHC to relay node’s BHC|
+|block|Relay→BF/HF|The new block in serialized format|
+|merkleblock|Relay→SPV|The new block filtered into a merkle block|
+|tx|Relay→SPV|Serialized transactions from the new block that match the bloom filter|
+
+## Orphan Blocks
+
+Orphan Block이란 특정 노드에서 이전 블록의 헤더 해시 값이 본적이 없는 블록을 지칭함<br/>
+이는 부모노드가 best block chain의 일부가 아닌 stale block과 다름<br/>
+
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-orphan-stale-definition.svg">
+</p>
+
+## Transaction BroadCasting
+
+트랜잭션을 피어에게 전달하기 위해서는 inv message가 전달됨<br/>
+getdata message의 응답을 받으면 트랜잭션은 tx message를 통해 트랜잭션이 보내짐<br/>
+해당 트랜잭션을 받은 피어는 트랜잭션이 valid하다고 가정하고 동일한 방법으로 트랜잭션을 포워딩함<br/>
+
+## Memory Pool
+
+Full peer는 다음 블록에 포함될 수 있는 unconfirmed 트랜잭션을 추적함<br/>
+unconfirmed 트랜잭션은 Bitcoin Core에서 non-persistent memory에 저장이되며 이것이 Memory pool(mempool)임<br/>
+피어가 shut down하면 wallet에 저장된 트랜잭션을 제외한 메모리 풀에 있는 트랜잭션은 비트코인 네트워크에서 사라지게 됨<br/>
+늦게 채굴되어 stale block이 된 트랜잭션은 mempool로 다시 돌아갈 수가 있다<br/>
+이렇게 다시 추가된 트랜잭션은 블록이 해당 트랜잭션을 포함하게 되면 거의 즉시 pool에서 제거되게 된다<br/>
+이는 bitcoin core가 stale block을 하나씩 제거하는 것임<br/>
+SPV 클라이언트는 트랜잭션을 relay하지 않기 때문에 memory pool을 갖고 있지 않음<br/>
+SPV는 트랜잭션을 독립적으로 검증하는 것이 불가능하여 블록을 생성하는 것이 불가능하고, 오직 UTXO를 소비하는 것만 가능함<br/>
 
 
 # 참고자료
