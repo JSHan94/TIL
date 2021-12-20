@@ -82,7 +82,7 @@ DNS seeds가 인증 받지 않았거나 악의적인 공격자 또는 Man-in-the
     - 이런 반복 검색을 통해 IBD 노드의 로컬 블록체인이 Sync 노드의 로컬 블록체인에서 분기되더라도 Sync 노드는 더 가능성 높은 블록 정보를 보낼 수 있음
     - 이 포크 감지는 IBD 노드가 블록 체인의 끝에 가까워질수록 점점 더 유용해집니다. 
 
-## Block-First IBD pros & cons
+### Block-First IBD pros & cons
 
 Pros
 - Simplicity
@@ -98,7 +98,47 @@ Bitcoin core는 Header-First IBD를 통해 이런 단점들을 일부 또는 전
 
 ## Header-First
 
-TBA
+Bitcoin core 0.10.0은 IBD를 위해 header-first 방식을 채택함
+header-first는 블록의 일부분만 검증하여 best header chain을 다운로드 하는 것이며, 병렬적으로 해당 헤더에 매칭되는 블록을 다운 받는 것임
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-headers-first-flowchart.svg">
+</p>
+
+1. **GetHeaders Message**: IBD -> Sync, 하나 이상의 헤더 해시 요청
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-getheaders.svg">
+</p>
+
+2. **Headers Message**: Sync -> IBD, 최대 2000개 블록 헤더
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-ibd-headers.svg">
+</p>
+
+3. 블록 헤더를 검증한 후
+    - IBD 노드는 블록 검증 후 다음 두 가지를 병렬적으로 수행함
+    - Download More Headers: sync 노드에게 다음 2000개 헤더를 요청함
+    - Download Blocks: IBD 노드가 헤더를 다운받은 후 각 블록에 대한 정보를 요청하고 다운로드 함
+
+<p align="center">
+  <img src="https://developer.bitcoin.org/_images/en-headers-first-moving-window.svg">
+</p>
+
+## Block Broadcasting
+
+Miner가 새로운 블록을 생성하면 그 블록을 다음 중 하나의 방법으로 피어들에게 전달함
+
+- Unsolicited Block Push
+    - "Block" message를 풀노드 피어들에게 전달 함
+- Standard Block Relay
+    - Miner가 standard relay node 역할을 하며 "inv" message를 새로운 블록에 대한 inventory와 함께 피어인 풀노드와 SPV 모두에게 보냄
+    - 이에 대한 response는 다음과 같음
+    - **block-first** 피어는 full block을 요구하는 "getdata" message를 보냄
+    - **header-first** 피어는 highest-height header의 해시를 포함한 "getheaders" message의 응답을 요청함. 이후 full block 정보를 요청함. header를 먼저 요청함으로써 header-first 피어는 ophan block을 거절하는 것이 가능함
+    - **Simplified Payment Verification(SPV)** 클라이언트는 merkle block을 요청하는 "getdata" message의 응답을 요구함
+
 
 # 참고자료
 
