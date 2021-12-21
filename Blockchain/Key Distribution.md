@@ -4,20 +4,23 @@
 
 ## Distribution of Public keys
  
- 
 ### Public Announcement
 
-RSA와 같은 public key 암호방식에서, 사용자들은 자신의 공개 키를 다른 사용자나 그룹에게 전파하는 것이 가능하다
+RSA와 같은 public key 암호방식에서, 사용자들은 자신의 공개 키를 다른 사용자나 그룹에게 전파하는 것이 가능하다<br/>
+하지만 이와 같은 방식은 악의적인 유저(M)가, 다른 사람(A)인 척하며 공개키(PK_A)를 전파하는 것이 가능한 문제가 있다<br/>
+A 유저가 다른 유저들에게 Alert하기 전에, M은 A의 암호 메세지들을 계속 보는 것이 가능함<br/>
 
-하지만 이와 같은 방식은 악의적인 유저(M)가, 다른 사람(A)인 척하며 공개키(PK_A)를 전파하는 것이 가능한 문제가 있다
-
-A 유저가 다른 유저들에게 Alert하기 전에, M은 A의 암호 메세지들을 계속 보는 것이 가능함
+<p align="center">
+ <img src="https://1.bp.blogspot.com/-Qaz-9LQI6nA/YP6XFcA7gtI/AAAAAAAAC4w/CZs3NNW2o_gLPN-adJQXuIwFk20NfMVhQCPcBGAYYCw/w400-h264/pic%2B41.png"/>
+</p>
 
 ### Publicly Available Directory
 
-신뢰할수있는 엔터티에 의해 public directory가 관리됨
+신뢰할수있는 엔터티에 의해 public directory가 관리됨<br/>
 
-과정은 다음과 같다
+<p align="center">
+ <img src="https://1.bp.blogspot.com/-_nkGjSV0Fhw/YP6XKSUbppI/AAAAAAAAC44/VLl2BMozzA4j5phd1snlQCW5XxBdrqSPACPcBGAYYCw/w640-h258/pic%2B42.png"/>
+</p>
 
 - TTE(Trusted Entity)가 각 유저의 <name, public key> 디렉토리를 관리함
 - 각 유저들은 디렉토리에 public key를 register함
@@ -27,9 +30,12 @@ A 유저가 다른 유저들에게 Alert하기 전에, M은 A의 암호 메세�
 
 ### Public Key Authority 
 
-중앙 entity에서 키를 전체적으로 관리하고, 유저 A,B가 서로 암호화 통신을 할 때 각 유저들의 Public key를 분배하는 방법. 참고 자료의 그림을 보면 더 잘 이해 됨
-
+중앙 entity에서 키를 전체적으로 관리하고, 유저 A,B가 서로 암호화 통신을 할 때 각 유저들의 Public key를 분배하는 방법.<br/>
 It gives stronger security. A central authority keeps a dynamic directory of public keys of all users. Each user knows the public key of authority
+
+<p align="center">
+ <img src="https://1.bp.blogspot.com/-umot1KBsr64/YP6XPbKhSgI/AAAAAAAAC48/A2hV9CVR5DcrmqQcRhu7LhuiDXdTdZZswCPcBGAYYCw/w640-h348/pic%2B43.png"/>
+</p>
 
 - User A sends a time stamped message to public-key authority containig a request for the current public key of user B.
 - The authority responds with a message that is encrypted using the authority's private key, PR_auth. Thus, A is able to decrypt the message using the authority's pbulic key. Therefore, A is assured that the message originated with the authority.
@@ -44,21 +50,19 @@ It gives stronger security. A central authority keeps a dynamic directory of pub
 
 ### Public Key Certificates
 
-공인인증서 방식
 
-The directoy of names and public keys maintained by the authority is vulnerable to tampering.
 
-An alternative approach is to use certificates.
+공인인증서 방식<br/>
+Authority에 의해 관리되는 공개키 디렉토리는 위조 되기 쉬움. 이에 대한 대안으로 Certificate 이용<br/>
+In essence, a certificate consists of **a public key, an identifier of the key owner, and the whole block signed by a trusted third party**<br/>
+Typically, the third party is a certificate authority, such as a government agency or financial institution that is trusted by the user community<br/>
+A user can present public key to the authority in a secure manner and obtain a certificate.<br/>
+The user can then publish the certificate. Anyone needing this user's public key can obtain the certificate and verify that it is valid by way of the attached trusted signature<br/>
+Other participants can verify that the certificate was created by the authority<br/>
 
-In essence, a certificate consists of **a public key, an identifier of the key owner, and the whole block signed by a trusted third party**
-
-Typically, the third party is a certificate authority, such as a government agency or financial institution that is trusted by the user community
-
-A user can present public key to the authority in a secure manner and obtain a certificate.
-
-The user can then publish the certificate. Anyone needing this user's public key can obtain the certificate and verify that it is valid by way of the attached trusted signature
-
-Other participants can verify that the certificate was created by the authority
+<p align="center">
+ <img src="https://1.bp.blogspot.com/-g6El9H3MOJk/YP6XrlEckEI/AAAAAAAAC5I/IXqRHAgkBAgozKlVeQirHX386i5va7J9wCPcBGAYYCw/w640-h434/image.png"/>
+</p>
 
 We can place the following requirements on this scheme:
 
