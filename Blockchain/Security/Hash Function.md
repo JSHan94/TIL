@@ -61,3 +61,29 @@ Sponge and squeeze construction이란 방법을 사용함<br/>
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SpongeConstruction.svg/300px-SpongeConstruction.svg.png"/></p>
 
+# Message Authentication Code (MAC)
+
+MAC은 키 기반 해시 함수라고도 불리며 메시지 무결성과 인증(데이터의 출처)을 제공하는데 사용 됨<br/>
+발신자와 수신자 간에 공유 키를 사용하는 대칭 암호화 Primitive임<br/>
+
+## 블록 암호를 사용하는 MAC
+
+- 암호 블록 연쇄화 (Cipher Block Chaining, CBC)모드를 사용
+- 블록 암호라면 어떤 것이든 사용 가능하며 AES를 CBC 모드로 사용 가능
+- MAC 검증 시 메시지의 MAC을 계산하여 수신된 MAC과 비교하면 됨
+- MAC은 디지털 서명처럼 작동하지만 대칭키를 사용한다면 부인 방지 기능을 제공할 수 없음
+
+## 해시 기반 MAC
+
+- 해시 함수와 마찬가지로 임의 길이의 메시지를 입력 받아 고정 길이의 출력을 생성
+- 발신자는 MAC을 사용해 메시지에 서명하고 수신자는 공유 키를 사용해 검증
+- 키는 메시지와 함께 비밀 접두사 혹은 비밀 접미사 두가지 방법 중 하나로 해시 됨
+        - 비밀 접두사(secret prefix) : M = MACk(x) = h(k||x)
+        - 비밀 접미사(secret suffix) : M = MACk(x) = h(x||k)
+- HMAC 구성 기법의 예시로는 내부패딩, 외부 패딩 같은 기술들이 있음
+
+
+# 해시 함수를 활용한 여러가지 블록체인 기술
+
+- 머클트리, 패트리샤 트리
+- 분산 해시 테이블
