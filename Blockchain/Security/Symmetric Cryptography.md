@@ -43,3 +43,42 @@ Counter 모드에는 효과적으로 블록 암호를 스트림 암호로 사용
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Ctr_encryption.png"/>
 </p>
+
+# DES
+
+- 데이터 암호화 표준(Data Encryption Standard)
+- DES는 고작 56비트 길이의 키를 사용하여 Brute force attack에 취약하다는 문제가 발견됨
+- 삼중 DES(Triple DES, 3DES)를 도입하여 해결하였지만, 성능저하문제와 블록 크기 등에서 적합하지 않은 문제가 발생
+
+# AES 알고리즘
+
+- 고급 암호화 표준(Advanced Encryption Standard)
+- Brute force attack 이외에 효과적으로 AES를 공격하는 방법이 발견되지 않음
+- AES 표준은 128 비트 블록 크기만 허용하지만, 키 크기는 128, 192, 256 비트 모두 허용함
+
+## 작동 방식
+
+AES 알고리즘은 암호화를 처리하는 동안 4x4 배열 형태의 state 배열을 여러 라운드에 거쳐가며 수정하게 됨<br/>
+키 크기에 따라 요구되는 라운드 수가 다름
+
+|키 크기|필요한 라운드 수|
+|---|---|
+|128비트|10 라운드|
+|192비트|12 라운드|
+|256비트|14 라운드|
+
+입력에 따라 암호에 대한 상태 배열을 초기화하고 나면 입력을 암호화하기 위해 4개의 연산을 수행함
+
+1. AddRoundKey : 상태 배열을 마스터 키에서 유도된 Subkey와 XOR 함. Key schedule을 통해 입력 키를 통해 Subkey를 추출함
+2. SubBytes : Lookup Table(S box)를 사용해 상태 배열의 모든 Byte를 대치함
+3. ShiftRows : 첫 번째 행을 제외하고 각 행을 왼쪽으로 점진적으로 순환하는 방식으로 Shift함
+4. MixColumns : 모든 Byte를 열 단위 선형 방식으로 혼합함
+
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/AES_Encryption_Round.png"/>
+</p>
+
+이 4가지 과정이 AES의 한 라운드에 해당되며, 최종 라운드에서는 4단계를 AddRoundKey로 대체해 이전 3단계를 되돌리지 못하게 함<br/>
+각 라운드의 자세한 과정은 [여기](https://blog.naver.com/PostView.naver?blogId=wnrjsxo&logNo=221711255389)를 참고<br/>
+다양한 암호화폐 지갑에서 AES 암호를 사용해 로컬에 저장돼 있는 데이터를 암호화 함<br/>
+비트코인의 지갑에서는 CBC 모드로 AES-256을 사용함
