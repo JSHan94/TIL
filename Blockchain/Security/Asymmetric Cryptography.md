@@ -85,8 +85,7 @@ P가 자신에게 더해지는 과정 <br/>
 접선이 곡선을 통과하여 그려지며, 접선과 곡선의 교차점을 두번째 점을 반사 시켜 얻게 됨
 
 <p align="center">
-  <img src="https://www.researchgate.net/profile/Aws-Jaber/publication/308548189/figure/fig1/AS:409880985915392@1474734650183/Point-doubling-22-Elliptic-curve-Diffie-Hellman-ECDH-key-exchange.png
-"/>
+  <img src="https://www.researchgate.net/profile/Andrzej-Chmielowiec/publication/237135871/figure/fig2/AS:705058949844995@1545110561863/Elliptic-curve-point-doubling-over-R.png"/>
 </p>
 
 ### ECC에서의 이산 로그 문제
