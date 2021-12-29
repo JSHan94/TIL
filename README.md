@@ -26,6 +26,7 @@
       - [Raft]()
     - Network
       - [P2P Network](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/P2P%20Network.md)
+      - [Inter-Blockchain Communication] 
       - [Gassip Protocol](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/Gassip%20Protocol.md)
       - Membership Protocol
       - Paxos
@@ -39,7 +40,7 @@
       - [CAP 정리](https://github.com/JSHan94/TIL/blob/main/Blockchain/Storage/CAP%20%EC%A0%95%EB%A6%AC.md)
 
     - Cryptography & Security
-      - Hash 알고리즘 <!--SHA 256, Keecak-256-->
+      - [Hash 함수](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/Hash%20Function.md) <!--SHA 256, Keecak-256-->
       - [CIA Triad](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/CIA%20Triad.md)
       - [Symmetric Cryptography](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/Symmetric%20Cryptography.md)
       - [Asymmetric Cryptography](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/Asymmetric%20Cryptography.md)
@@ -50,7 +51,7 @@
       - 키 관리 <!--HSM,Multi-sig,MPC, Shamir Secret Sharing, HD Wallet-->
       - 지갑 관리 <!--HD Wallet, -->
       - [Blockchain Privacy 프로젝트](https://github.com/JSHan94/TIL/blob/main/Blockchain/Security/Blockchain%20Privacy%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.md)
-    - [Smart Contract]()
+    - Smart Contract
       - 스마트 컨트랙트의 개념과 동작 원리
       - 컨트랙트 개발 시 제약 사항
       - Virtual Machine <!--EVM-->
