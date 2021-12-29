@@ -26,11 +26,10 @@
       - [Raft]()
     - Network
       - [P2P Network](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/P2P%20Network.md)
-      - [Inter-Blockchain Communication] 
-      - [Gassip Protocol](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/Gassip%20Protocol.md)
+      - [Inter-Blockchain Communication]()
+      - [Routing Protocol](https://github.com/JSHan94/TIL/blob/main/Blockchain/Network/Routing%20Protocols.md)
       - Membership Protocol
       - Paxos
-      - Multicast
     - Storage
       - [Blockchain의 구조와 Ledger의 트리 구조]()
       - [블록체인의 구조]()  <!--블록헤더/바디, 머클트리/패트리시아트리-->
