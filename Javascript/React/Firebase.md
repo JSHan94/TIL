@@ -11,35 +11,32 @@ firebase 설치
 npm install firebase
 ```
 
+
+# Firestore 사용
 fbase.js
 ```javascript
 import { initializeApp } from 'firebase/app';
-import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
-      ////
-      ////
-      ////
-      ////
- };
+const firebaseApp = initializeApp({
+   ///
+   ///
+  });
 
+const db = getFirestore();
 
-firebase.initializeApp(firebaseConfig);
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+export default db;
 ```
 
-# 데이터 저장하기
+## 데이터 저장하기
+
+공식 Docs 참조
 
 ```javascript
-```
-
-# 데이터 삭제하기
-
-```javascript
-```
-
-# Listener 
-
-```javascript
+const docRef = await addDoc(collection(db, "users"), {
+      name: name,
+    });
+    console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+        console.error("Hello Error adding document: ", e);
 ```
