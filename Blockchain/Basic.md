@@ -45,20 +45,6 @@
 - STO : Security Token Offering. 실물자산을 근거로 이윤의 일부를 배당으로 받거나 소유권 주장 가능하게하는 토큰. IPO에 비해 저렴
 
 
-## UTXO와 Account 모델
-
-<img src="https://mblogthumb-phinf.pstatic.net/MjAyMDA5MTJfMTI5/MDAxNTk5ODkwMzM3MDI1.wffCdDVRXlVU6y1G2gKS2PzlHptvHKXUdbvOUuptQMcg.kB3txHZ9w6JFIZ5qLD6MYPww1Rrl1-KoJuqztj4aZMwg.PNG.pcmola/1_eAKr5SIZfWXwC9dFBOmS3Q.png?type=w800"/>
-- UTXO : UTXO의 트랜잭션은 입력으로는 사용되지 않은 지출 목록(UTXO)를 받고, 출력으로는 새로운 UTXO를 만들어냄. 한 번 사용된 UTXO는 목록에서 제거 됨.
-    - 동시에 여러 트랜잭션을 처리할 수 있는 **확장성**
-    - 매 거래마다 새로운 주소를 활용하여 **(pseudo) 익명성**
-    - UTXO는 한번 사용된 후 사라지기 때문에 이중 지불을 방지할 수 있음
-    - UTXO가 과도하게 생성될 경우 흩어진 코인을 모두 모아야하는 번거로움과 불필요한 수수료를 내야할 문제가 생길 수 있음
-- Account : Global State가 각 계정의 Balance를 추적 함. 
-    - 직관적이고 상태 추적이 가능한 **단순성** 
-    - 거래 검증 시 충분한 잔액을 가지고 있는 지만 확인하면 되는 **효율성**
-    - 하지만 이는 Double Spending의 가능성이 있어, 이더리움은 모든 계정이 공개적으로 볼 수 있는 nonce를 이용하여 두번 이상 제출 되는 것을 막음
-
-
 ## Node & Client
 
 <p>
