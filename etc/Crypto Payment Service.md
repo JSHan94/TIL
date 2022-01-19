@@ -37,7 +37,28 @@
 
 ### Coda Pay
 
-게임, 온라인 스트리밍, 음악 스트리밍 등 
+- 게임 아이템, 온라인 스트리밍 이용권, 소프트웨어 서비스 등 디지털 컨텐츠 대리 결제 서비스  (필리핀 회사, 2011년 창설)
+- 앱 개발 회사들에서 앱 스토어의 과도한 수수료를 회피하기 위해 사용
+- 구글 문의 결과 국내 서비스에서 해당 서비스를 이용해서 결제를 할 수 있다는 답변을 받음
+- 복잡한 결제 시스템 때문에 수수료 정책이 조금씩 다름 (PG사 수수료 합쳐서 대략 15 ~ 20% 수준의 수수료가 발생한다고 함)
+
+<p align="center">
+    <img src="https://github.com/JSHan94/TIL/blob/main/etc/images/codashop%201.jpeg" align="center" width="200"/>
+    <img src="https://github.com/JSHan94/TIL/blob/main/etc/images/codashop%202.jpeg" align="center" width="700"/>
+</p>
+
+### Trusted Wallet
+
+- 암호화폐 지갑 서비스
+- 오픈소스로 구현되어있음
+- 앱 내에서 결제를 통해서 암호화폐 바로 구입 가능 (MoonPay, Ramp, Simple 등과 같은 암호화폐 결제 서비스 이용)
+- 암호화폐, 토큰 간 스왑 기능 또한 제공
+
+<p align="center">
+    <img src="https://github.com/JSHan94/TIL/blob/main/etc/images/trustwallet%201.jpeg" align="center" width="200"/>
+    <img src="https://github.com/JSHan94/TIL/blob/main/etc/images/trustwallet%202.jpeg" align="center" width="200"/>
+    <img src="https://github.com/JSHan94/TIL/blob/main/etc/images/trustwallet%203.jpeg" align="center" width="200"/>
+</p>
 
 ### 기타
 
