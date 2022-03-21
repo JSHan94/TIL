@@ -31,7 +31,7 @@
     - Java : 클래스 타입을 힙에, 기본 타입을 스택에 할당
     - Go : escape analysis를 통해 어느 메모리에 할당할 지를 결정
 - Dangling 오류 : 코드가 이미 사라진 메모리를 가르키는 오류
-
+- SOLID, TDD
 
 # Go의 특이한 사용법
 
