@@ -60,3 +60,16 @@
 <details>
   <summary>📌 Web Develop</summary>
 </details>
+
+
+<details>
+  <summary>📌 etc</summary>
+  
+- 22.07.20 
+  - python attrs library에서 Optional type에 대해 인자 생성시, ₩attr.ib(converter=converters.optional(parser.parse))₩
+  - core build 시 go install -> GOPATH로 binary 파일 생성, go build -> 해당 디렉토리에 빌드 폴더 생성 및 binary 파일 생성
+  - git은 snapshot 방식으로 코드 관리
+  - Opensource License의 경우 GPL의 경우엔 2차 창작 시 고지 의무 포함, Apache나 MIT는 자유 사용 가능, beerware (복잡하니 만나면 술이나 사줘)라는 라이센스도 존재
+
+</details>
+
